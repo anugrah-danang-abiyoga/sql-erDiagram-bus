@@ -1,0 +1,8 @@
+SELECT distinct Routes.routeID, routeName AS 'Route Name', disasterName AS 'Cause of Disaster'  
+FROM Routes left outer JOIN StopsAndRoutes  
+left outer JOIN Stop left outer JOIN AffectedStop 
+left outer JOIN Disasters 
+ON Routes.routeID=StopsAndRoutes.routeID  
+AND Stop.stopID=StopsAndRoutes.stopID  
+AND AffectedStop.stopID=Stop.stopID  
+AND Disasters.disasterID=AffectedStop.disasterID = null

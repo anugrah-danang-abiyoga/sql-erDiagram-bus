@@ -1,0 +1,7 @@
+SELECT routeName AS 'Route Name', date('now')-Disasters.disasterTime AS 'Period of disaster within 5 years' 
+FROM Routes JOIN StopsAndRoutes JOIN Stop JOIN AffectedStop 
+JOIN Disasters  ON Routes.routeID=StopsAndRoutes.routeID   
+AND Stop.stopID=StopsAndRoutes.stopID  
+AND AffectedStop.stopID=Stop.stopID  
+AND Disasters.disasterID=AffectedStop.disasterID 
+WHERE date('now')-Disasters.disasterTime <= 5
