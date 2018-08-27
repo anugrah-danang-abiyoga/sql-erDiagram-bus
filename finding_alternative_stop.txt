@@ -1,9 +1,0 @@
-SELECT distinct routeName AS 'Route Name', stopName AS 'Stop Name', disasterName as 'Affected or not' 
-FROM Routes LEFT OUTER JOIN StopsAndRoutes 
-LEFT OUTER JOIN  Stop LEFT OUTER JOIN AffectedStop 
-LEFT OUTER JOIN Disasters 
-ON Routes.routeID=StopsAndRoutes.routeID 
-and StopsAndRoutes.stopID=Stop.stopID 
-and Stop.stopID=AffectedStop.stopID 
-and AffectedStop.disasterID=Disasters.disasterID 
-ORDER by Disasters.disasterID DESC
